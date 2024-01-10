@@ -8,7 +8,12 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = '__all__'
         exclude = ('author',)
-        widgets = {'pub_date': forms.DateInput(attrs={'type': 'date'})}
+        widgets = {
+            'pub_date': forms.DateInput(
+                attrs={'type': 'date'},
+                format=('%Y-%m-%d')
+            )
+        }
 
 
 class ProfileForm(forms.ModelForm):
